@@ -56,5 +56,5 @@ int perform_sieve(int n){
       	      p++;
       	  } while(primes[p] == false);
    	 }
-	return result
+	return result;
 }
