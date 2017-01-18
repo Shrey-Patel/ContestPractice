@@ -73,6 +73,20 @@ int compare_strings(string s1, string s2){
 	int pos1, pos2 = 0;
 	number_to_word(s1);
 	number_to_word(s2);
+	
+	int temp;
+    	for(int i=0; i<s1.size(); i++)
+    	{
+        	for(int j=s2.size()-1; j>i; j--)
+        	{
+            		if(s1[j]<s2[j-1])
+            		{
+                		temp=[j-1];
+                		s1[j-1]=s2[j];
+                		s2[j]=temp;
+            		}
+        	}
+    	}
 
 }
 
