@@ -96,6 +96,7 @@ int compare_strings(string s1, string s2){
    				return false;
 			else {
 				pos1++ ; pos2++; continue();
+			}
 		}
     	}
 	return;
