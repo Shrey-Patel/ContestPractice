@@ -66,28 +66,39 @@ void vector_to_file(string filename, vector<string> &data){
 }
 
 void alphabetize(vector<string> &data){
-
+	bool swap;
+    	string temp;
+    	for(int i=0; i<data.size(); i++){
+   	for(int j=(i+1); j<data.size(), j < i; j++){
+   		 swap = compare_strings(data[i].substr(7, data[i].length()), data[j].substr(7, data[j].length())) //pass characters after the phone numbers of the two entries
+   		 if(swap){
+   			 temp = data[i];
+   			 data[i] = data[j];
+   			 data[j] = temp;
+   		 }
+   	 }
+    }
 }
 
 int compare_strings(string s1, string s2){
 	int pos1, pos2 = 0;
-	number_to_word(s1);
-	number_to_word(s2);
-	
-	int temp;
-    	for(int i=0; i<s1.size(); i++)
-    	{
-        	for(int j=s2.size()-1; j>i; j--)
-        	{
-            		if(s1[j]<s2[j-1])
-            		{
-                		temp=[j-1];
-                		s1[j-1]=s2[j];
-                		s2[j]=temp;
-            		}
-        	}
-    	}
+    	string p1, p2;
+    	p1=s1;
+    	p2=s2;
+    	number_to_word(p1);
+    	number_to_word(p2);
 
+	for (pos1 = 0; pos1 < p1.size();) {
+		for (pos2 = 0; pos2 < p2.size();) {
+    			if(p1[pos1] > p2[pos2])
+   	 			return true;
+    			else if(p1[pos1] < p2[pos2])
+   				return false;
+			else {
+				pos1++ ; pos2++; continue();
+		}
+    	}
+	return;
 }
 
 //converts and replaces the numbers in a string with their word equivalent
